@@ -11,7 +11,8 @@ class AddPet extends Component {
             name: '',
             color: '',
             breed: '',
-            owner: ''
+            owner: '',
+            checkedIn: false
         }
     }
 

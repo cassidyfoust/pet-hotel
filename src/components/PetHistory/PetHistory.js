@@ -24,19 +24,33 @@ class PetHistory extends Component {
                             <th>Actions</th>
                         </tr>
                         {this.props.reduxState.petReducer.map((pet) => {
-                            return (
-                                <tr>
-                                    <td>{pet.owner}</td>
-                                    <td>{pet.name}</td>
-                                    <td>{pet.breed}</td>
-                                    <td>{pet.color}</td>
-                                    <td>no</td>
-                                    <td>Delete | Check In</td>
-                                </tr>
-                                    )
-                                    }
+                            if (pet.checkedIn == false){
+                                return (
+                                    <tr>
+                                        <td>{pet.owner}</td>
+                                        <td>{pet.name}</td>
+                                        <td>{pet.breed}</td>
+                                        <td>{pet.color}</td>
+                                        <td>no</td>
+                                        <td>Delete | Check In</td>
+                                    </tr>
                                 )
-                        }
+                            }
+                            else {
+                                return (
+                                    <tr>
+                                        <td>{pet.owner}</td>
+                                        <td>{pet.name}</td>
+                                        <td>{pet.breed}</td>
+                                        <td>{pet.color}</td>
+                                        <td>Date</td>
+                                        <td>Delete | Check Out</td>
+                                    </tr>
+                                )
+                            }
+                            }
+                                )
+                            }
                     </table>
                 </div>
             </>
