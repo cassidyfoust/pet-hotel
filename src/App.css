@@ -19,20 +19,39 @@
   background-color: #727f9a;
   height: 40%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  
 }
 
-.toggleBtn {
-  background-color: #3f4655;
-  border: 2px solid #282c34;
-  margin: 15px;
+.toggleBtnOn {
+  background-color: #b2c4ed;
+  margin-top: 10px;
+  margin-bottom: 10px;
   font-size: 20px;
   width: 30%;
   color: #ffffff;
 }
 
-.toggleBtn:hover {
-  background-color: #a9b8da;
+.toggleBtnOn:hover {
+  background-color: #dbe4f9;
+}
+
+.owner-form {
+  width: 70%;
+  margin-right: 10px;
+}
+
+.toggleBtnOff {
+  background-color: #3f4655;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  width: 30%;
+  color: #ffffff;
+}
+
+.toggleBtnOff:hover {
+  background-color: #dbe4f9;
 }
 
 .add-pet-form {

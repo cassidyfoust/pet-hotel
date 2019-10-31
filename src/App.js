@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Dashboard from './components/Dashboard/Dashboard';
+import ManageOwners from './components/ManageOwners/ManageOwners'
 
 class App extends Component {
   state = {
@@ -28,8 +29,8 @@ class App extends Component {
       </header>
             <body>
               <div className="toggle-view">
-                <button className="toggleBtn" onClick={this.viewDashboard}>Dashboard</button>
-                <button className="toggleBtn" onClick={this.viewOwners}>Manage Owners</button>
+                <button className="toggleBtnOn" onClick={this.viewDashboard}>Dashboard</button>
+                <button className="toggleBtnOff" onClick={this.viewOwners}>Manage Owners</button>
               </div>
               <Dashboard />
             </body>
@@ -46,11 +47,10 @@ class App extends Component {
       </header>
               <body>
                 <div className="toggle-view">
-                  <button className="toggleBtn" onClick={this.viewDashboard}>Dashboard</button>
-                  <button className="toggleBtn" onClick={this.viewOwners}>Manage Owners</button>
+                  <button className="toggleBtnOff" onClick={this.viewDashboard}>Dashboard</button>
+                  <button className="toggleBtnOn" onClick={this.viewOwners}>Manage Owners</button>
                 </div>
-                Manage Owners
-                {/* <Dashboard /> */}
+                <ManageOwners/>
               </body>
             </div>
           </>
