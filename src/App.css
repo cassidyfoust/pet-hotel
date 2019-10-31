@@ -8,15 +8,43 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 50%;
+  font-size: 50px;
+  padding: 50px;
+  text-align: left;
   color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+.toggle-view {
+  background-color: #727f9a;
+  height: 40%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.toggleBtn {
+  background-color: #3f4655;
+  border: 2px solid #282c34;
+  margin: 15px;
+  font-size: 20px;
+  width: 30%;
+  color: #ffffff;
+}
+
+.toggleBtn:hover {
+  background-color: #a9b8da;
+}
+
+.add-pet-form {
+  display: flex;
+  padding-left: 10px;
+}
+
+.pet-form {
+  margin: 10px;
+}
+
+.header {
+  text-align: left;
+  padding-left: 20px;
 }
