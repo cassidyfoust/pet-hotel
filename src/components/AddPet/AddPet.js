@@ -1,12 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-// const mapStateToProps = reduxState => ({
-//     reduxState,
-// });
+const mapStateToProps = reduxState => ({
+    reduxState,
+});
 
 class AddPet extends Component {
-    state = {}
+    state = {
+        petToAdd: {
+            name: '',
+            color: '',
+            breed: '',
+            owner: ''
+        }
+    }
+
+    setPet = (property, event) => {
+        this.setState({...this.state,
+            petToAdd: {
+                ...this.state.petToAdd,
+                [property]: event.target.value
+            }
+        })
+    }
+
+    addPet = () => {
+        console.log('the pet to add is:', this.state.petToAdd)
+        this.props.dispatch({type: 'SET_PETS', payload: this.state.petToAdd})
+    }
+
     render() {
         return (
             <>
@@ -14,18 +36,18 @@ class AddPet extends Component {
                 <h2>Add Pet</h2>
                 </div>
             <div className="add-pet-form">
-                <input placeholder="Pet Name" className="pet-form"></input>
-                <input placeholder="Pet Color" className="pet-form"></input>
-                <input placeholder="Pet Breed" className="pet-form"></input>
-                <select className="pet-form">
-                    <option>Test 1</option>
+                <input placeholder="Pet Name" className="pet-form" onChange={(event) => this.setPet('name', event)}></input>
+                    <input placeholder="Pet Color" className="pet-form" onChange={(event) => this.setPet('color', event)}></input>
+                    <input placeholder="Pet Breed" className="pet-form" onChange={(event) => this.setPet('breed', event)}></input>
+                    <select className="pet-form" onChange={(event) => this.setPet('owner', event)}>
+                    <option>Owner Name</option>
                     <option>Test 2</option>
                     <option>Test 3</option>
                 </select>
-                <button>Submit</button>
+                <button onClick={this.addPet}>Submit</button>
             </div>
             </>
         )
     }
 }
-export default AddPet;
+export default connect(mapStateToProps)(AddPet);

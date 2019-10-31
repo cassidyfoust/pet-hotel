@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-// const mapStateToProps = reduxState => ({
-//     reduxState,
-// });
+const mapStateToProps = reduxState => ({
+    reduxState,
+});
 
 class PetHistory extends Component {
     state = {}
@@ -23,18 +23,24 @@ class PetHistory extends Component {
                             <th>Checked In</th>
                             <th>Actions</th>
                         </tr>
-                        <tr>
-                            <td>Test</td>
-                            <td>Test</td>
-                            <td>Test</td>
-                            <td>Test</td>
-                            <td>Test</td>
-                            <td>Delete | Check In</td>
-                        </tr>
+                        {this.props.reduxState.petReducer.map((pet) => {
+                            return (
+                                <tr>
+                                    <td>{pet.owner}</td>
+                                    <td>{pet.name}</td>
+                                    <td>{pet.breed}</td>
+                                    <td>{pet.color}</td>
+                                    <td>no</td>
+                                    <td>Delete | Check In</td>
+                                </tr>
+                                    )
+                                    }
+                                )
+                        }
                     </table>
                 </div>
             </>
         )
     }
 }
-export default PetHistory;
+export default connect(mapStateToProps)(PetHistory);
