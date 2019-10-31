@@ -1,26 +1,61 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import Dashboard from './components/Dashboard/Dashboard';
+import ManageOwners from './components/ManageOwners/ManageOwners'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+class App extends Component {
+  state = {
+    dashboardDisplay: true
+  }
+
+  viewDashboard = () => {
+    this.setState({
+      dashboardDisplay: true
+    })
+  }
+  viewOwners = () => {
+    this.setState({
+      dashboardDisplay: false
+    })
+  }
+
+  render() {
+    if (this.state.dashboardDisplay){
+      return (
+        <>
+          <div className="App">
+            <header className="App-header">
+              Pet Hotel
       </header>
-    </div>
-  );
+            <body>
+              <div className="toggle-view">
+                <button className="toggleBtnOn" onClick={this.viewDashboard}>Dashboard</button>
+                <button className="toggleBtnOff" onClick={this.viewOwners}>Manage Owners</button>
+              </div>
+              <Dashboard />
+            </body>
+          </div>
+        </>
+      );
+    }
+    else {
+        return (
+          <>
+            <div className="App">
+              <header className="App-header">
+                Pet Hotel
+      </header>
+              <body>
+                <div className="toggle-view">
+                  <button className="toggleBtnOff" onClick={this.viewDashboard}>Dashboard</button>
+                  <button className="toggleBtnOn" onClick={this.viewOwners}>Manage Owners</button>
+                </div>
+                <ManageOwners/>
+              </body>
+            </div>
+          </>
+        );
+    }
+  }
 }
-
 export default App;

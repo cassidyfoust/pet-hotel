@@ -8,15 +8,81 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 50%;
+  font-size: 50px;
+  padding: 50px;
+  text-align: left;
   color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+.toggle-view {
+  background-color: #727f9a;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  
 }
+
+.toggleBtnOn {
+  background-color: #b2c4ed;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  width: 30%;
+  color: #ffffff;
+}
+
+.toggleBtnOn:hover {
+  background-color: #dbe4f9;
+}
+
+.owner-form {
+  width: 70%;
+  margin-right: 10px;
+}
+
+.toggleBtnOff {
+  background-color: #3f4655;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  width: 30%;
+  color: #ffffff;
+}
+
+.toggleBtnOff:hover {
+  background-color: #dbe4f9;
+}
+
+.add-pet-form {
+  display: flex;
+  padding-left: 50px;
+}
+
+.pet-form {
+  margin: 10px;
+}
+
+.header {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.history-wrapper {
+  padding-left: 60px;
+  display: flex;
+}
+
+.history-table {
+  border: 2px solid #282c34;
+  border-collapse: collapse;
+}
+
+tr, td, th {
+  border: 2px solid #282c34;
+  border-collapse: collapse;
+  padding: 15px;
+}
+
+tr:nth-child(even) {background: #e6ebf7}
+tr:nth-child(odd) {background: #a9b8da}
