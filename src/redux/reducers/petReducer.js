@@ -1,6 +1,6 @@
 const pets = (state = [], action) => {
     switch (action.type) {
-        case 'SET_PETS':
+        case 'ADD_PET':
             return [
                 ...state,
                 action.payload

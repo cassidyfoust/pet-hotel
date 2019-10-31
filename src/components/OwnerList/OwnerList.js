@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-// const mapStateToProps = reduxState => ({
-//     reduxState,
-// });
+const mapStateToProps = reduxState => ({
+    reduxState,
+});
 
 class OwnerList extends Component {
     state = {}
@@ -20,15 +20,20 @@ class OwnerList extends Component {
                             <th>Number of Pets</th>
                             <th>Actions</th>
                         </tr>
-                        <tr>
-                            <td>Test</td>
-                            <td>Test</td>
-                            <td>Delete</td>
-                        </tr>
+                        {this.props.reduxState.ownerReducer.map((owner) => {
+                                return (
+                                    <tr>
+                                        <td>{owner.name}</td>
+                                        <td>{owner.numberOfPets}</td>
+                                        <td>Delete</td>
+                                    </tr>
+                                )
+                            })
+                        }
                     </table>
                 </div>
             </>
         )
     }
 }
-export default OwnerList;
+export default connect(mapStateToProps)(OwnerList);

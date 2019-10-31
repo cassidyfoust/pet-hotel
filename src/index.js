@@ -8,6 +8,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
+import ownerReducer from './redux/reducers/ownerReducer'
 import { takeEvery, put } from 'redux-saga/effects';
 import axios from 'axios';
 
@@ -21,7 +22,8 @@ const sagaMiddleware = createSagaMiddleware();
 
 const storeInstance = createStore(
     combineReducers({
-        petReducer
+        petReducer,
+        ownerReducer
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
