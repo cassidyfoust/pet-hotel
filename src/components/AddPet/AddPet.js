@@ -42,8 +42,14 @@ class AddPet extends Component {
                     <input placeholder="Pet Breed" className="pet-form" onChange={(event) => this.setPet('breed', event)}></input>
                     <select className="pet-form" onChange={(event) => this.setPet('owner', event)}>
                     <option>Owner Name</option>
-                    <option>Test 2</option>
-                    <option>Test 3</option>
+                        {this.props.reduxState.ownerReducer.map((owner) => {
+                            return (
+                                <option>
+                                    {owner.name}
+                                </option>
+                            )
+                        })
+                        }
                 </select>
                 <button onClick={this.addPet}>Submit</button>
             </div>
