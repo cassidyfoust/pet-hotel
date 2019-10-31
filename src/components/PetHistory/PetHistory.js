@@ -6,7 +6,13 @@ const mapStateToProps = reduxState => ({
 });
 
 class PetHistory extends Component {
+
     state = {}
+
+    componentDidMount() {
+        this.props.dispatch({type:'GET_PETS'})
+    }
+
     render() {
         return (
             <>
@@ -24,10 +30,10 @@ class PetHistory extends Component {
                             <th>Actions</th>
                         </tr>
                         {this.props.reduxState.petReducer.map((pet) => {
-                            if (pet.checkedIn == false){
+                            if (pet.checked_in === false){
                                 return (
                                     <tr>
-                                        <td>{pet.owner}</td>
+                                        <td>{pet.owner_name}</td>
                                         <td>{pet.name}</td>
                                         <td>{pet.breed}</td>
                                         <td>{pet.color}</td>
@@ -39,7 +45,7 @@ class PetHistory extends Component {
                             else {
                                 return (
                                     <tr>
-                                        <td>{pet.owner}</td>
+                                        <td>{pet.owner_name}</td>
                                         <td>{pet.name}</td>
                                         <td>{pet.breed}</td>
                                         <td>{pet.color}</td>
