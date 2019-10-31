@@ -11,18 +11,27 @@ class PetHistory extends Component {
         return (
             <>
                 <div className="header">
-                    <h2>Add Pet</h2>
+                    <h2>History</h2>
                 </div>
-                <div className="add-pet-form">
-                    <input placeholder="Pet Name" className="pet-form"></input>
-                    <input placeholder="Pet Color" className="pet-form"></input>
-                    <input placeholder="Pet Breed" className="pet-form"></input>
-                    <select className="pet-form">
-                        <option>Test 1</option>
-                        <option>Test 2</option>
-                        <option>Test 3</option>
-                    </select>
-                    <button>Submit</button>
+                <div className="history-wrapper">
+                    <table className="history-table">
+                        <tr>
+                            <th>Owner</th>
+                            <th>Pet</th>
+                            <th>Breed</th>
+                            <th>Color</th>
+                            <th>Checked In</th>
+                            <th>Actions</th>
+                        </tr>
+                        <tr>
+                            <td>Test</td>
+                            <td>Test</td>
+                            <td>Test</td>
+                            <td>Test</td>
+                            <td>Test</td>
+                            <td>Delete | Check In</td>
+                        </tr>
+                    </table>
                 </div>
             </>
         )
