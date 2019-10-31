@@ -7,6 +7,11 @@ const mapStateToProps = reduxState => ({
 
 class OwnerList extends Component {
     state = {}
+
+    componentDidMount() {
+        this.props.dispatch({ type: 'GET_OWNERS' })
+    }
+
     render() {
         return (
             <>

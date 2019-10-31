@@ -20,6 +20,30 @@ const sagaMiddleware = createSagaMiddleware();
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 
+function* rootSaga() {
+    yield takeEvery('GET_PETS', getPets);
+}
+
+function* getPets(action) {
+    try {
+        const response = yield axios.get('/pets');
+        console.log('the response is:', response.data)
+        yield put({ type: 'ADD_PET', payload: response.data})
+    } catch (error) {
+        console.log('error while getting pets', error)
+    }
+}
+
+function* getOwners(){
+    try {
+        const response = yield axios.get('/pets');
+        console.log('the response is:', response.data)
+        yield put({ type: 'ADD_PET', payload: response.data })
+    } catch (error) {
+        console.log('error while getting pets', error)
+    }
+}
+
 const storeInstance = createStore(
     combineReducers({
         petReducer,
@@ -28,6 +52,8 @@ const storeInstance = createStore(
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
 );
+
+sagaMiddleware.run(rootSaga);
 
 serviceWorker.unregister();
 
