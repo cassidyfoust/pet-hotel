@@ -22,6 +22,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 function* rootSaga() {
     yield takeEvery('GET_PETS', getPets);
+    yield takeEvery('GET_OWNERS', getOwners);
 }
 
 function* getPets(action) {
@@ -36,9 +37,9 @@ function* getPets(action) {
 
 function* getOwners(){
     try {
-        const response = yield axios.get('/pets');
+        const response = yield axios.get('/owners');
         console.log('the response is:', response.data)
-        yield put({ type: 'ADD_PET', payload: response.data })
+        yield put({ type: 'ADD_OWNER', payload: response.data })
     } catch (error) {
         console.log('error while getting pets', error)
     }

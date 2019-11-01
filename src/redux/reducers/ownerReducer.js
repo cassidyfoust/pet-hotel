@@ -1,10 +1,7 @@
-const owners = (state = [{ name: 'Cass', numberOfPets: 1 }, { name: 'Lily', numberOfPets: 1 }, { name: 'Garvey', numberOfPets: 2 }, { name: 'Jordana', numberOfPets: 3  }], action) => {
+const owners = (state = [], action) => {
     switch (action.type) {
         case 'ADD_OWNER':
-            return [
-                ...state,
-                action.payload
-            ]
+            return action.payload
         default:
             return state;
     }
