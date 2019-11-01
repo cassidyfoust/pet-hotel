@@ -27,7 +27,7 @@ class AddPet extends Component {
 
     addPet = () => {
         console.log('the pet to add is:', this.state.petToAdd)
-        this.props.dispatch({type: 'ADD_PET', payload: this.state.petToAdd})
+        // this.props.dispatch({type: 'ADD_PET', payload: this.state.petToAdd})
     }
 
     render() {

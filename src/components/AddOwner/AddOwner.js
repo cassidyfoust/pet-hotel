@@ -9,7 +9,6 @@ class AddOwner extends Component {
     state = {
         ownerToAdd: {
             name: '',
-            numberOfPets: 0
         }
     }
 
@@ -24,7 +23,7 @@ class AddOwner extends Component {
 
     addNewOwner = () => {
         console.log('the owner to add is:', this.state.ownerToAdd)
-        this.props.dispatch({ type: 'ADD_OWNER', payload: this.state.ownerToAdd })
+        this.props.dispatch({ type: 'NEW_OWNER', payload: this.state.ownerToAdd })
     }
 
     render() {
