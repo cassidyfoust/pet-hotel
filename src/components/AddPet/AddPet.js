@@ -16,11 +16,25 @@ class AddPet extends Component {
         }
     }
 
+    componentDidMount() {
+        this.props.dispatch({ type: 'GET_OWNERS' })
+    }
+
     setPet = (property, event) => {
         this.setState({...this.state,
             petToAdd: {
                 ...this.state.petToAdd,
                 [property]: event.target.value
+            }
+        })
+    }
+
+    setOwnerId = (event) => {
+        this.setState({
+            ...this.state,
+            petToAdd: {
+                ...this.state.petToAdd,
+                owner: event.target.value
             }
         })
     }
@@ -40,11 +54,11 @@ class AddPet extends Component {
                 <input placeholder="Pet Name" className="pet-form" onChange={(event) => this.setPet('name', event)}></input>
                     <input placeholder="Pet Color" className="pet-form" onChange={(event) => this.setPet('color', event)}></input>
                     <input placeholder="Pet Breed" className="pet-form" onChange={(event) => this.setPet('breed', event)}></input>
-                    <select className="pet-form" onChange={(event) => this.setPet('owner', event)}>
+                    <select className="pet-form" onChange={(event) => this.setOwnerId(event)}>
                     <option>Owner Name</option>
                         {this.props.reduxState.ownerReducer.map((owner) => {
                             return (
-                                <option>
+                                <option value={owner.id}>
                                     {owner.name}
                                 </option>
                             )
