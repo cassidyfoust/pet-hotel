@@ -34,7 +34,7 @@ class PetHistory extends Component {
                                 return (
                                     <tr>
                                         <td>{pet.owner_name}</td>
-                                        <td>{pet.name}</td>
+                                        <td>{pet.pet_name}</td>
                                         <td>{pet.breed}</td>
                                         <td>{pet.color}</td>
                                         <td>no</td>
@@ -46,7 +46,7 @@ class PetHistory extends Component {
                                 return (
                                     <tr>
                                         <td>{pet.owner_name}</td>
-                                        <td>{pet.name}</td>
+                                        <td>{pet.pet_name}</td>
                                         <td>{pet.breed}</td>
                                         <td>{pet.color}</td>
                                         <td>Date</td>
